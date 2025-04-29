@@ -14,4 +14,7 @@ psycopg2-binary==2.9.10
 django-dump-load-utf8==0.0.4
 python-dotenv==1.0.1
 
+elasticsearch == 8.17.2
+elasticsearch-dsl == 8.17.1
+
 djangorestframework == 3.15.2

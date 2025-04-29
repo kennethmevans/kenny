@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     "documents",
+    "es_documents",
     "namedEntities",
     'nested_admin',
     'django_dump_load_utf8',
@@ -81,6 +82,19 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'PCAST_django.wsgi.application'
+
+
+# change to the remote database settings to use the environment variables
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'https://localhost:9200',
+        'http_auth': ('elastic', 'YpitQ=CU-*KqhfaZOdCD'),
+        'ssl_show_warn': False,
+        'timeout': 30,
+        'verify_certs': False,
+    },
+}
+
 
 
 # Database
@@ -132,9 +146,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT=''
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static/'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

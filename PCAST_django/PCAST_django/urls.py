@@ -26,6 +26,7 @@ urlpatterns = [
 
     path('', include('namedEntities.urls')),
     path('', include('documents.urls')),
+    path('', include('es_documents.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
